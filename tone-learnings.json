@@ -1,0 +1,424 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2025-10-17T21:43:00Z",
+    "total_events_analyzed": 35,
+    "learning_algorithm": "temporal_weighted_frequency",
+    "temporal_decay_factor": 0.85,
+    "description": "Automatically tracks tone of voice patterns from finalized event content. Newer content weighted more heavily via temporal decay."
+  },
+  "event_type_patterns": {
+    "vibelabs_community": {
+      "weight": 0.40,
+      "language_mix": "norwegian_primary_english_tech",
+      "formality_level": 2,
+      "emoji_frequency": "moderate",
+      "typical_duration": "2-3 hours",
+      "typical_times": ["15:00", "17:00"],
+      "default_venues": ["Mesh Nationaltheateret", "Mesh Youngstorget"],
+      "pricing_model": "free",
+      "common_sponsors": ["V0/Vercel", "Databutton"]
+    },
+    "shifter_courses": {
+      "weight": 0.25,
+      "language_mix": "norwegian_primary",
+      "formality_level": 6,
+      "emoji_frequency": "minimal",
+      "typical_duration": "full-day (09:00-16:00)",
+      "typical_times": ["09:00"],
+      "default_venues": ["Rebel", "Schibsted offices"],
+      "pricing_model": "commercial",
+      "participant_investment": "~NOK 300+"
+    },
+    "anfo_partnership": {
+      "weight": 0.20,
+      "language_mix": "norwegian_formal",
+      "formality_level": 7,
+      "emoji_frequency": "rare",
+      "typical_duration": "4 hours or full-day",
+      "typical_times": ["09:00", "12:00"],
+      "default_venues": ["ANFO Telegrafen", "Holter"],
+      "pricing_model": "mixed",
+      "audience_profile": "marketing_leaders_major_brands"
+    },
+    "corporate_training": {
+      "weight": 0.15,
+      "language_mix": "adaptable",
+      "formality_level": 6,
+      "emoji_frequency": "minimal",
+      "typical_duration": "flexible (0.5-8 hours)",
+      "typical_times": ["flexible"],
+      "default_venues": ["client_offices"],
+      "pricing_model": "custom",
+      "customization_level": "high"
+    }
+  },
+  "phrase_patterns": {
+    "openings": {
+      "gratitude": {
+        "phrases": [
+          "Takk for...",
+          "Thank you for joining...",
+          "Takk for engasjerende og interessant...",
+          "Tusen takk for at..."
+        ],
+        "frequency": 18,
+        "event_types": ["all"],
+        "formality": [5, 6, 7, 8],
+        "temporal_weight": 0.92
+      },
+      "excitement": {
+        "phrases": [
+          "Vi er tilbake!",
+          "Kjempegøy at...",
+          "Dette blir...",
+          "Looking forward to..."
+        ],
+        "frequency": 15,
+        "event_types": ["vibelabs_community", "corporate_training"],
+        "formality": [2, 3, 4, 5],
+        "temporal_weight": 0.89
+      },
+      "context_setting": {
+        "phrases": [
+          "Following up on...",
+          "Building on that success...",
+          "After an incredible...",
+          "As we discussed..."
+        ],
+        "frequency": 12,
+        "event_types": ["all"],
+        "formality": [4, 5, 6, 7],
+        "temporal_weight": 0.88
+      },
+      "announcement": {
+        "phrases": [
+          "Join us for...",
+          "We're back with...",
+          "Next [day] at...",
+          "Mark your calendar..."
+        ],
+        "frequency": 22,
+        "event_types": ["vibelabs_community", "shifter_courses"],
+        "formality": [2, 3, 4],
+        "temporal_weight": 0.95
+      }
+    },
+    "value_propositions": {
+      "no_code_emphasis": {
+        "phrases": [
+          "helt uten koding",
+          "without writing code",
+          "no coding experience required",
+          "uten noe som helst kodekompetanse",
+          "No coding background required"
+        ],
+        "frequency": 28,
+        "event_types": ["all"],
+        "formality": [2, 3, 4, 5, 6, 7],
+        "temporal_weight": 0.97
+      },
+      "professional_code": {
+        "phrases": [
+          "ekte, profesjonell kode",
+          "professional code",
+          "real, working applications",
+          "not a 'low-code' solution",
+          "skalerbare applikasjoner"
+        ],
+        "frequency": 16,
+        "event_types": ["shifter_courses", "corporate_training", "anfo_partnership"],
+        "formality": [5, 6, 7],
+        "temporal_weight": 0.91
+      },
+      "practical_outcomes": {
+        "phrases": [
+          "build something amazing",
+          "from concept to launch",
+          "working prototype in one day",
+          "take home a finished",
+          "practical skills you'll use immediately"
+        ],
+        "frequency": 24,
+        "event_types": ["all"],
+        "formality": [3, 4, 5, 6],
+        "temporal_weight": 0.94
+      },
+      "hands_on": {
+        "phrases": [
+          "hands-on",
+          "praktisk workshop",
+          "live coding",
+          "build together",
+          "Action, ikke bare prat"
+        ],
+        "frequency": 19,
+        "event_types": ["all"],
+        "formality": [2, 3, 4, 5, 6],
+        "temporal_weight": 0.93
+      }
+    },
+    "calls_to_action": {
+      "low_pressure": {
+        "phrases": [
+          "See you there!",
+          "Looking forward to building together",
+          "Join us if you can make it",
+          "Hope to see you",
+          "Vi sees!"
+        ],
+        "frequency": 14,
+        "event_types": ["vibelabs_community"],
+        "formality": [1, 2, 3],
+        "temporal_weight": 0.90
+      },
+      "scarcity": {
+        "phrases": [
+          "Kun [X] plasser",
+          "Limited to [X] spots",
+          "First [X] get",
+          "Only [X] available",
+          "Register now"
+        ],
+        "frequency": 11,
+        "event_types": ["anfo_partnership", "corporate_training"],
+        "formality": [5, 6, 7],
+        "temporal_weight": 0.87
+      },
+      "preparation": {
+        "phrases": [
+          "Please create these accounts before...",
+          "Bring laptop + charger",
+          "Make sure you have...",
+          "Prerequisites:",
+          "Required accounts:"
+        ],
+        "frequency": 8,
+        "event_types": ["shifter_courses", "corporate_training"],
+        "formality": [5, 6, 7],
+        "temporal_weight": 0.86
+      }
+    },
+    "partnership_mentions": {
+      "sponsor_callout": {
+        "phrases": [
+          "Pizza sponsored by V0",
+          "2-month free trial",
+          "In partnership with",
+          "Knowledge partner:",
+          "Supported by"
+        ],
+        "frequency": 13,
+        "event_types": ["vibelabs_community", "anfo_partnership"],
+        "formality": [2, 3, 4, 5, 6],
+        "temporal_weight": 0.91
+      },
+      "platform_mentions": {
+        "phrases": [
+          "100kr free V0 credits",
+          "Databutton free trial",
+          "Credits from",
+          "Access to"
+        ],
+        "frequency": 9,
+        "event_types": ["vibelabs_community"],
+        "formality": [2, 3, 4],
+        "temporal_weight": 0.88
+      }
+    },
+    "community_building": {
+      "phrases": [
+        "our community",
+        "together",
+        "mutual help",
+        "office hours",
+        "WhatsApp community",
+        "at least 3 companies emerged from these events"
+      ],
+      "frequency": 10,
+      "event_types": ["vibelabs_community"],
+      "formality": [2, 3, 4],
+      "temporal_weight": 0.89
+    }
+  },
+  "structural_patterns": {
+    "event_details_format": {
+      "preferred_format": "bold_labels_with_values",
+      "example": "**Date:** Tuesday, March 4, 2025\n**Time:** 17:00-19:00\n**Location:** Mesh Youngstorget, Oslo",
+      "frequency": 35,
+      "temporal_weight": 1.0
+    },
+    "program_structure": {
+      "numbered_parts": {
+        "usage": "shifter_courses",
+        "example": "**Part 1: Building Websites**\n1. Item\n2. Item",
+        "frequency": 6,
+        "temporal_weight": 0.85
+      },
+      "timeline_based": {
+        "usage": "vibelabs_community",
+        "example": "**15:00-16:00:** Session\n**16:00-16:30:** Live coding",
+        "frequency": 12,
+        "temporal_weight": 0.92
+      }
+    },
+    "prerequisites_format": {
+      "preferred": "numbered_list_with_links",
+      "example": "**Prerequisites:**\n1. GitHub account\n2. V0.dev account ($20/month)\n3. Laptop + charger",
+      "frequency": 8,
+      "temporal_weight": 0.87
+    }
+  },
+  "emoji_usage": {
+    "pizza": {
+      "emoji": "🍕",
+      "context": "V0 pizza sponsorship",
+      "frequency": 8,
+      "event_types": ["vibelabs_community"],
+      "placement": "end_of_sentence",
+      "temporal_weight": 0.94
+    },
+    "smiley": {
+      "emoji": "😊",
+      "context": "warmth in professional context",
+      "frequency": 4,
+      "event_types": ["corporate_training", "anfo_partnership"],
+      "placement": "end_of_sentence",
+      "temporal_weight": 0.82
+    },
+    "party": {
+      "emoji": "🎪",
+      "context": "special events",
+      "frequency": 1,
+      "event_types": ["vibelabs_community"],
+      "placement": "contextual",
+      "temporal_weight": 0.75
+    }
+  },
+  "language_patterns": {
+    "norwegian_phrases": {
+      "high_frequency": [
+        "Takk for",
+        "Dette blir",
+        "Kjempegøy",
+        "Kun X plasser",
+        "Helt uten kode",
+        "Vi ses",
+        "Lær å bygge"
+      ],
+      "medium_frequency": [
+        "Praktisk workshop",
+        "Ferdig produkt",
+        "Ekte kode",
+        "Fra konsept til lansering"
+      ]
+    },
+    "english_tech_terms": {
+      "always_english": [
+        "vibecoding",
+        "AI",
+        "prompt",
+        "backend",
+        "frontend",
+        "app",
+        "API",
+        "MVP",
+        "live coding",
+        "hackathon"
+      ],
+      "platform_names": [
+        "V0.dev",
+        "GitHub",
+        "Firebase",
+        "Supabase",
+        "Databutton",
+        "OpenAI Platform"
+      ]
+    },
+    "code_switching_patterns": {
+      "natural_switches": [
+        "Lær å bygge websider og apper med AI",
+        "Build profesjonelle applikasjoner",
+        "Vibecoding workshop på norsk"
+      ],
+      "avoid_switches": [
+        "mixing prepositions across languages in same phrase"
+      ]
+    }
+  },
+  "temporal_weighting": {
+    "description": "Events are weighted by recency. Recent events (2025 Q3-Q4) weighted highest.",
+    "weight_by_quarter": {
+      "2025_Q1": 0.70,
+      "2025_Q2": 0.80,
+      "2025_Q3": 0.90,
+      "2025_Q4": 1.00
+    },
+    "brand_era_weights": {
+      "devjoy_era": 0.65,
+      "vibecoding_era": 0.80,
+      "vibelabs_era": 1.00
+    }
+  },
+  "edit_patterns": {
+    "description": "Tracks user edits from generated drafts to finalized content. Populated automatically via diff analysis.",
+    "common_adjustments": [],
+    "placeholder_preferences": [],
+    "structural_changes": [],
+    "tone_shifts": [],
+    "last_learning_date": null,
+    "total_drafts_analyzed": 0
+  },
+  "placeholder_defaults": {
+    "vibelabs_community": {
+      "venue": "Mesh Nationaltheateret",
+      "time": "17:00",
+      "duration": "2-3 hours",
+      "pricing": "Free for all attendees",
+      "sponsor": "Pizza sponsored by V0 🍕",
+      "format": "Session + live coding + office hours"
+    },
+    "shifter_courses": {
+      "venue": "Rebel or Schibsted offices",
+      "time": "09:00",
+      "duration": "Full day (09:00-16:00)",
+      "pricing": "Commercial (participant invests ~NOK 300+ in tools)",
+      "prerequisites": "GitHub, V0.dev ($20/month), OpenAI Platform ($5 credit)",
+      "format": "Part 1: Websites, Part 2: Web Apps, Part 3: Going Live"
+    },
+    "anfo_partnership": {
+      "venue": "ANFO Telegrafen or Holter",
+      "time": "09:00 or 12:00",
+      "duration": "4 hours or full-day",
+      "pricing": "Mixed (free workshops, paid courses)",
+      "audience": "Marketing/communication leaders from major brands",
+      "format": "Mix of presentation and hands-on workshop"
+    },
+    "corporate_training": {
+      "venue": "Client offices",
+      "time": "Flexible (typically 09:00 or 17:00)",
+      "duration": "Flexible (2-3 hours or full-day)",
+      "pricing": "Custom pricing",
+      "format": "Interactive workshop, not presentation",
+      "customization": "Tailored to client needs"
+    }
+  },
+  "quality_indicators": {
+    "successful_patterns": {
+      "high_engagement_phrases": [
+        "build something amazing",
+        "pizza sponsored by V0",
+        "at least 3 companies emerged",
+        "from concept to launch in one day"
+      ],
+      "effective_structures": [
+        "hook -> concrete_outcome -> details -> cta",
+        "gratitude -> value_prop -> logistics -> next_steps"
+      ]
+    },
+    "feedback_incorporated": {
+      "shifter_improvement": "Intro shortened to max 7 minutes (recurring feedback)",
+      "rating_trend": "4.8/5 -> 4.4/5 suggests need for continued iteration"
+    }
+  }
+}
