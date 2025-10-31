@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "ctx7sk-c4ee3251-c23d-4c8d-95b2-3aae14f11c59"
+      ]
+    },
+    "resend": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/simonsouyrisstrumse/Claude Code Projects/mcp-send-email/build/index.js"
+      ],
+      "env": {
+        "RESEND_API_KEY": "re_4VDaG8eK_4K4qzzSBG5J3u5vmDRv2XsTA",
+        "SENDER_EMAIL_ADDRESS": "hello@vibelabs.no",
+        "SENDER_NAME": "Vibelabs"
+      }
+    }
+  }
+}
